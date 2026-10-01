@@ -1,70 +1,230 @@
-# Getting Started with Create React App
+# Mahajana Grinding Mill System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack e-commerce and management system developed for Mahajana Grinding Mill to modernize product sales, customer management, orders, inventory, and sales operations.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The Mahajana Grinding Mill System is a web-based e-commerce application that allows customers to browse products, select different product weights, add items to a cart, place orders, and make payments.
 
-### `npm start`
+The system also provides a seller/admin dashboard for managing products, customers, orders, inventory, and sales information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Customer Features
 
-### `npm test`
+* Customer registration and login
+* Browse products by category
+* Product search and viewing
+* Multiple product weight options
+* Shopping cart
+* Order placement
+* Order history
+* Order status tracking
+* Customer dashboard
+* Recently viewed products
+* Online payment integration with Stripe
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Seller/Admin Features
 
-### `npm run build`
+* Seller login
+* Seller dashboard
+* Product management
+* Add and view products
+* Customer management
+* Order management
+* Inventory management
+* Sales dashboard
+* Sales statistics and charts
+* Update order status
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Product Categories
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The system includes multiple product categories such as:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Spices
+* Flour
+* Herbal Products
+* Chai Masala
+* Grains
+* Nuts
+* Facial Products
+* Rice Flour
+* Ready Mix
+* Packaging
+* Beverages
+* Bakery Products
+* Natural Sweet Products
+* Ayurvedic Products
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* React.js
+* JavaScript
+* HTML5
+* CSS3
+* Axios
+* Chart.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Node.js
+* Express.js
+* REST API
 
-## Learn More
+### Database
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* MariaDB / MySQL
+* XAMPP
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Payment
 
-### Code Splitting
+* Stripe Test Payment Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Development Tools
 
-### Analyzing the Bundle Size
+* Visual Studio Code
+* Git
+* GitHub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Project Structure
 
-### Making a Progressive Web App
+```text
+Mahajana-Grinding-Mill-System/
+│
+├── mahajana-frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/pages
+│   │   ├── context/
+│   │   └── images/
+│   ├── package.json
+│   └── README.md
+│
+├── mahajana-backend/
+│   ├── config/
+│   ├── routes/
+│   ├── server.js
+│   ├── schema.sql
+│   ├── seed-products.sql
+│   └── package.json
+│
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Installation and Setup
 
-### Advanced Configuration
+### 1. Clone the Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+git clone https://github.com/ZikraMuzammil/Mahajana-Grinding-Mill-System.git
+```
 
-### Deployment
+### 2. Open the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+cd Mahajana-Grinding-Mill-System
+```
 
-### `npm run build` fails to minify
+### 3. Install Backend Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd mahajana-backend
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file inside the `mahajana-backend` folder.
+
+Add your own local configuration:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=mahajana_db
+PORT=5000
+STRIPE_SECRET_KEY=your_stripe_test_secret_key
+```
+
+**Important:** The `.env` file is not included in this repository for security reasons.
+
+### 5. Set Up the Database
+
+Start **Apache** and **MySQL** using XAMPP.
+
+Create a database named:
+
+```text
+mahajana_db
+```
+
+Import the SQL files from the `mahajana-backend` folder into MySQL/phpMyAdmin.
+
+### 6. Start the Backend
+
+Inside `mahajana-backend`:
+
+```bash
+npm start
+```
+
+The backend runs on:
+
+```text
+http://localhost:5000
+```
+
+### 7. Install Frontend Dependencies
+
+Open another terminal:
+
+```bash
+cd mahajana-frontend
+npm install
+```
+
+### 8. Start the Frontend
+
+```bash
+npm start
+```
+
+The React application will open at:
+
+```text
+http://localhost:3000
+```
+
+## Security
+
+Sensitive information such as:
+
+* Stripe secret keys
+* Database passwords
+* Environment variables
+
+is excluded from GitHub using `.gitignore`.
+
+Never upload secret API keys or passwords to GitHub.
+
+## Project Purpose
+
+This project was developed as a final-year IT project to provide a modern digital solution for Mahajana Grinding Mill by replacing manual business processes with an integrated e-commerce and management system.
+
+## Author
+
+**Zikra Muzzammil**
+
+Higher National Diploma in Information Technology (HNDIT)
+
+Advanced Technology Institute, Nawalapitiya
+
+## GitHub
+
+https://github.com/ZikraMuzammil/Mahajana-Grinding-Mill-System
