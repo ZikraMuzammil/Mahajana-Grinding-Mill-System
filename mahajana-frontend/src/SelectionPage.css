@@ -1,0 +1,128 @@
+.selection-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #111111 40%,
+    #f4b400 140%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TITLE */
+.portal-title {
+  color: #f4b400;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.portal-subtitle {
+  color: #e0e0e0;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* CARDS CONTAINER */
+.portal-container {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.portal-card {
+  width: 340px;
+  padding: 30px;
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(244,180,0,0.4);
+
+  text-align: center;
+  color: white;
+
+  transition: all 0.4s ease;
+  cursor: pointer;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.portal-card:hover {
+  transform: translateY(-12px) scale(1.03);
+
+  border-color: #f4b400;
+
+  box-shadow:
+    0 15px 40px rgba(244,180,0,0.25),
+    0 0 20px rgba(244,180,0,0.15);
+}
+
+/* ICON */
+.portal-icon {
+  font-size: 70px;
+  margin-bottom: 15px;
+}
+
+/* HEADING */
+.portal-card h2 {
+  color: #f4b400;
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+/* FEATURES */
+.portal-card p {
+  margin: 8px 0;
+  color: #d6d6d6;
+  font-size: 15px;
+}
+
+/* BUTTON */
+.portal-card button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 13px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #f4b400;
+  color: black;
+
+  font-weight: bold;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portal-card button:hover {
+  background: #ffcc33;
+  transform: translateY(-3px);
+}
+
+/* BACK BUTTON */
+.back-arrow {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+
+  font-size: 35px;
+  color: #f4b400;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-arrow:hover {
+  transform: translateX(-5px);
+}

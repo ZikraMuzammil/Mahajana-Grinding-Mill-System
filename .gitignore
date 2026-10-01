@@ -1,0 +1,6 @@
+node_modules/
+.env
+dist/
+build/
+*.log
+mahajana_db.zip

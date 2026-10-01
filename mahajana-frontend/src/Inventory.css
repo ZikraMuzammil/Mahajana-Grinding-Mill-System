@@ -1,0 +1,252 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Segoe UI,sans-serif;
+  background:#000;
+}
+
+/* LAYOUT */
+
+.inventory-layout{
+  display:flex;
+  min-height:100vh;
+  background:linear-gradient(135deg,#000,#111,#1a1400);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+}
+
+/* SIDEBAR */
+
+.inventory-sidebar{
+  width:250px;
+  background:#050505;
+  padding:20px;
+  border-right:1px solid rgba(255,215,0,.15);
+}
+
+.inventory-sidebar h2{
+  color:gold;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.menu{
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.3s;
+  color:white;
+}
+
+.menu:hover{
+  background:rgba(255,215,0,.15);
+  color:gold;
+  transform:translateX(5px);
+}
+
+.menu.active{
+  background:gold;
+  color:black;
+  font-weight:bold;
+}
+
+.logout{
+  color:#ff5252;
+  margin-top:25px;
+}
+
+/* MAIN */
+
+.inventory-main{
+  flex:1;
+  padding:25px;
+}
+
+.inventory-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.inventory-topbar h1{
+  color:gold;
+}
+
+/* SEARCH */
+
+.inventory-search{
+  width:280px;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:#1a1a1a;
+  color:white;
+  outline:none;
+  transition:.3s;
+}
+
+.inventory-search:focus{
+  box-shadow:0 0 15px gold;
+}
+
+/* CARDS */
+
+.inventory-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.inventory-card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  color:white;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.inventory-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,215,0,.3),
+    transparent
+  );
+}
+
+.inventory-card:hover::before{
+  left:100%;
+  transition:1s;
+}
+
+.inventory-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px rgba(255,215,0,.4);
+}
+
+.inventory-card h3{
+  color:#ccc;
+}
+
+.inventory-card h2{
+  color:gold;
+  margin-top:10px;
+}
+
+/* TABLE */
+
+.inventory-table-card{
+  background:rgba(255,255,255,.04);
+  padding:20px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  padding:15px;
+  color:gold;
+  background:rgba(0,0,0,.5);
+}
+
+td{
+  padding:15px;
+  text-align:center;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+tr{
+  transition:.3s;
+}
+
+tr:hover{
+  background:rgba(255,215,0,.08);
+}
+
+/* STATUS */
+
+.status{
+  padding:6px 15px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.ok{
+  background:#4caf50;
+  color:white;
+}
+
+.low{
+  background:#ff9800;
+  color:white;
+}
+
+.out{
+  background:#f44336;
+  color:white;
+}
+
+/* ANIMATION */
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .inventory-cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .inventory-sidebar{
+    width:200px;
+  }
+}
+
+@media(max-width:700px){
+
+  .inventory-layout{
+    flex-direction:column;
+  }
+
+  .inventory-sidebar{
+    width:100%;
+  }
+
+  .inventory-cards{
+    grid-template-columns:1fr;
+  }
+
+  .inventory-topbar{
+    flex-direction:column;
+    gap:15px;
+  }
+}

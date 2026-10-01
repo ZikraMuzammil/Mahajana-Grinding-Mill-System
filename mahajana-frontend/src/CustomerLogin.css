@@ -1,0 +1,191 @@
+/* ================= PAGE BACKGROUND ================= */
+.customer-auth-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #000 0%, #111 55%, #f4b400 200%);
+}
+
+/* glowing animated shader blobs */
+.customer-auth-page::before,
+.customer-auth-page::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  filter: blur(130px);
+  opacity: 0.25;
+  z-index: 0;
+  animation: floatGlow 6s infinite ease-in-out;
+}
+
+.customer-auth-page::before {
+  background: #f4b400;
+  top: -120px;
+  left: -120px;
+}
+
+.customer-auth-page::after {
+  background: #ffcc33;
+  bottom: -120px;
+  right: -120px;
+  animation-delay: 2s;
+}
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(35px); }
+}
+
+/* ================= HEADER ================= */
+.customer-header {
+  text-align: center;
+  margin-bottom: 25px;
+  z-index: 2;
+}
+
+.customer-header h1 {
+  color: #f4b400;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.customer-header p {
+  color: #ccc;
+  font-size: 15px;
+}
+
+/* ================= CARD ================= */
+.customer-card {
+  width: 400px;
+  padding: 30px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(244,180,0,0.4);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.6),
+    0 0 25px rgba(244,180,0,0.15);
+
+  transition: 0.4s ease;
+
+  z-index: 2;
+}
+
+.customer-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 15px 50px rgba(0,0,0,0.7),
+    0 0 35px rgba(244,180,0,0.25);
+}
+
+.customer-card h2 {
+  color: #f4b400;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ================= INPUTS ================= */
+.customer-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+  border: 1px solid #333;
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+.customer-card input::placeholder {
+  color: #aaa;
+}
+
+.customer-card input:focus {
+  outline: none;
+  border-color: #f4b400;
+  box-shadow: 0 0 10px rgba(244,180,0,0.3);
+}
+
+/* ================= PASSWORD ================= */
+.password-box {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* ================= BUTTON ================= */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #f4b400, #ffcc33);
+  color: black;
+
+  font-weight: bold;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(244,180,0,0.35);
+}
+
+/* ================= LINKS ================= */
+.toggle,
+.back {
+  margin-top: 12px;
+  text-align: center;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle {
+  color: #f4b400;
+  font-weight: 600;
+}
+
+.toggle:hover,
+.back:hover {
+  text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .customer-card {
+    width: 92%;
+    padding: 25px;
+  }
+
+  .customer-header h1 {
+    font-size: 30px;
+  }
+}

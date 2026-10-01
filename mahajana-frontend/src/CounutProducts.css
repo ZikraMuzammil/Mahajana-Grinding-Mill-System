@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700&family=Jost:wght@400;500;600&display=swap');
+
+.cd-layout {
+  --bg: #0A0A0B;
+  --surface: #151312;
+  --surface-2: #1D1A16;
+  --gold: #C9A227;
+  --gold-bright: #F0D585;
+  --gold-dim: rgba(201, 162, 39, 0.25);
+  --ink: #F4EFE2;
+  --ink-soft: #A79F8C;
+  --line: rgba(201, 162, 39, 0.18);
+  --danger: #E05C4F;
+  --success: #3ECF6E;
+  --info: #5FA8E0;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.cd-layout.show { opacity: 1; }
+
+.cd-layout h1, .cd-layout h2, .cd-layout h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+.cd-gold-text { color: var(--gold-bright); }
+.cd-muted { color: var(--ink-soft); font-size: 13.5px; }
+.cd-muted.small { font-size: 12px; }
+
+.cd-error {
+  background: rgba(224, 92, 79, 0.12);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* ================= SIDEBAR ================= */
+
+.cd-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #121110, #0A0A0B);
+  border-right: 1px solid var(--line);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.cd-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.cd-logo-icon { display: block; font-size: 26px; margin-bottom: 6px; }
+.cd-logo span {
+  display: block;
+  font-size: 10.5px;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.cd-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.cd-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink-soft);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.cd-item-icon { font-size: 16px; }
+
+.cd-item:hover {
+  background: rgba(201, 162, 39, 0.08);
+  color: var(--gold-bright);
+  transform: translateX(3px);
+}
+
+.cd-item.active {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: #17140F;
+  font-weight: 600;
+}
+
+.cd-logout {
+  border: 1px solid var(--gold-dim);
+  justify-content: center;
+  color: var(--danger);
+}
+.cd-logout:hover { background: rgba(224, 92, 79, 0.1); color: var(--danger); transform: none; }
+
+/* ================= MAIN ================= */
+
+.cd-main {
+  flex: 1;
+  padding: 40px 48px;
+  max-width: 1200px;
+}
+
+.cd-welcome {
+  margin-bottom: 30px;
+  animation: cdRise 0.5s ease both;
+}
+.cd-welcome h1 { font-size: 30px; }
+.cd-welcome h1 span { color: var(--gold-bright); font-style: italic; }
+.cd-welcome p { margin-top: 8px; color: var(--ink-soft); font-size: 14px; }
+
+@keyframes cdRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cd-title {
+  font-size: 20px;
+  margin: 34px 0 16px;
+  color: var(--gold-bright);
+  animation: cdRise 0.5s ease both;
+}
+
+/* ================= STATS ================= */
+
+.cd-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  animation: cdRise 0.5s ease 0.05s both;
+}
+
+.cd-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.cd-stat-card:hover { transform: translateY(-4px); border-color: var(--gold-dim); }
+
+.cd-stat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  background: rgba(201, 162, 39, 0.12);
+}
+
+.cd-stat-value { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold-bright); }
+.cd-stat-label { font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+/* ================= PANEL (generic card) ================= */
+
+.cd-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  animation: cdRise 0.5s ease both;
+}
+
+/* ================= DELIVERY TRACKER ================= */
+
+.cd-tracker {
+  display: flex;
+  align-items: center;
+}
+.cd-tracker-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 90px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.cd-tracker-dot {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px;
+  color: var(--ink-soft);
+  transition: all 0.3s ease;
+}
+.cd-tracker-dot.done {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: #17140F;
+  border-color: var(--gold);
+}
+.cd-tracker-line {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  margin-bottom: 22px;
+  transition: background 0.3s ease;
+}
+.cd-tracker-line.done { background: var(--gold); }
+.cd-cancelled-note { color: var(--danger); margin-top: 16px; }
+
+/* ================= PRODUCT CARDS ================= */
+
+.cd-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.cd-product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  animation: cdCardRise 0.4s ease both;
+}
+@keyframes cdCardRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cd-product-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-dim);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.4);
+}
+.cd-icon { font-size: 28px; margin-bottom: 8px; }
+.cd-product-card h3 { font-size: 14px; margin-bottom: 6px; }
+.cd-product-card p { color: var(--gold-bright); font-size: 13px; margin-bottom: 12px; }
+.cd-product-card button {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: #17140F;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.cd-product-card button:hover { transform: translateY(-1px); }
+
+/* ================= ORDER ROWS (dashboard preview) ================= */
+
+.cd-order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  animation: cdRise 0.4s ease both;
+}
+.cd-order-row:last-child { border-bottom: none; }
+.cd-order-id { font-weight: 600; color: var(--ink); }
+.cd-order-total { font-family: 'Playfair Display', serif; color: var(--gold-bright); font-size: 15px; }
+
+.cd-badge {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.cd-badge.pending { background: rgba(201,162,39,0.15); color: var(--gold-bright); }
+.cd-badge.shipped { background: rgba(95,168,224,0.15); color: var(--info); }
+.cd-badge.delivered { background: rgba(62,207,110,0.15); color: var(--success); }
+.cd-badge.cancelled { background: rgba(224,92,79,0.15); color: var(--danger); }
+
+.cd-link-btn {
+  border: 1px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold-bright);
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.cd-link-btn:hover { background: rgba(201,162,39,0.1); }
+
+/* ================= INVOICES (My Orders page) ================= */
+
+.cd-invoice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cd-invoice {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 24px;
+  animation: cdCardRise 0.4s ease both;
+  transition: border-color 0.2s ease;
+}
+.cd-invoice:hover { border-color: var(--gold-dim); }
+
+.cd-invoice-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--line);
+  margin-bottom: 14px;
+}
+.cd-invoice-id { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ink); }
+
+.cd-invoice-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.cd-invoice-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.cd-invoice-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-size: 14px;
+}
+.cd-invoice-footer b { font-family: 'Playfair Display', serif; font-size: 18px; }
+
+/* ================= PROFILE / CONTACT ================= */
+
+.cd-profile-grid, .cd-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.cd-profile-field {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cd-profile-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(201,162,39,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.cd-profile-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+.cd-profile-value { font-size: 15px; margin-top: 2px; }
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .cd-layout { flex-direction: column; }
+  .cd-sidebar { width: 100%; height: auto; position: relative; flex-direction: row; overflow-x: auto; padding: 14px; }
+  .cd-logo { display: none; }
+  .cd-menu { flex-direction: row; }
+  .cd-item span:not(.cd-item-icon) { display: none; }
+  .cd-main { padding: 24px; }
+  .cd-tracker-step { min-width: 70px; }
+}

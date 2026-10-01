@@ -1,0 +1,453 @@
+/* ================= GOLD + BLACK ANIMATED BACKGROUND ================= */
+.view-container {
+  min-height: 100vh;
+  color: #fff;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(
+    -45deg,
+    #000000,
+    #0a0a0a,
+    #1a1400,
+    #000000,
+    #3a2a00,
+    #000000
+  );
+
+  background-size: 400% 400%;
+  animation: goldMove 12s ease infinite;
+}
+
+@keyframes goldMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= BACK ARROW ================= */
+.back-arrow {
+  font-size: 32px;
+  color: #f4b400;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 10px;
+
+  animation: floatArrow 2s infinite ease-in-out;
+  transition: 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: translateX(-6px) scale(1.1);
+  color: #ffcc33;
+}
+
+@keyframes floatArrow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ================= TITLE ================= */
+.header h1 {
+  color: #f4b400;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(244, 180, 0, 0.5);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= TABLE ================= */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7),
+              0 0 20px rgba(244,180,0,0.2);
+
+  animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+.product-table thead {
+  background: linear-gradient(90deg, #f4b400, #ffcc33);
+}
+
+.product-table th {
+  padding: 14px;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* ROWS */
+.product-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #222;
+  color: #fff;
+}
+
+.product-table tbody tr {
+  transition: 0.3s ease;
+}
+
+.product-table tbody tr:hover {
+  background: rgba(244, 180, 0, 0.1);
+  transform: scale(1.01);
+}
+
+/* ================= STATUS ================= */
+.status {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.status.in { background: #00ff88; color: #000; }
+.status.low { background: orange; color: #000; }
+.status.out { background: red; color: #fff; }
+
+/* ================= ACTION BUTTONS ================= */
+
+.product-table td:last-child {
+  white-space: nowrap;
+}
+
+.edit-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 26px;
+
+  margin: 2px;
+  font-size: 11px;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+/* EDIT */
+.edit-btn {
+  background: #f4b400;
+  color: #000;
+}
+
+.edit-btn:hover {
+  transform: scale(1.1);
+  background: #ffcc33;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ff3b3b;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  background: #ff0000;
+}
+
+/* ================= EDIT MODAL ================= */
+.edit-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+/* MODAL CARD */
+.edit-box > div {
+  width: 320px;
+  background: #111;
+  border: 1px solid #f4b400;
+  border-radius: 10px;
+  padding: 20px;
+
+  animation: popUp 0.3s ease;
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* INPUTS */
+.edit-box input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+
+  border-radius: 6px;
+  border: none;
+  outline: none;
+
+  background: #000;
+  color: #fff;
+}
+
+/* BUTTONS */
+.edit-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  flex: 1;
+  background: gold;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+/* ===== DARK OVERLAY BACKDROP ===== */
+.edit-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+/* ===== CENTER MODAL BOX ===== */
+.edit-box > div {
+  width: 350px;
+  background: #111;
+  border: 1px solid #f4b400;
+  border-radius: 12px;
+  padding: 20px;
+
+  box-shadow: 0 10px 30px rgba(244, 180, 0, 0.2);
+
+  animation: popUp 0.3s ease;
+}
+
+/* POP ANIMATION */
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* TITLE */
+.edit-box h3 {
+  color: #f4b400;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.edit-box input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #000;
+  color: #fff;
+}
+
+/* BUTTON ROW */
+.edit-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* SAVE BUTTON */
+.save-btn {
+  background: #00ff88;
+  color: #000;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 5px;
+}
+
+/* CANCEL BUTTON */
+.cancel-btn {
+  background: red;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+}
+/* ================= ACTION CELL ================= */
+.action-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* COMMON BUTTON STYLE (ALL SAME SIZE) */
+.edit-btn,
+.delete-btn,
+.insert-btn {
+  padding: 5px 8px;
+  font-size: 11px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  min-width: 55px;   /* SAME SIZE */
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+/* EDIT */
+.edit-btn {
+  background: #f4b400;
+  color: #000;
+}
+.edit-btn:hover {
+  transform: scale(1.05);
+  background: #ffcc33;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ff3b3b;
+  color: #fff;
+}
+.delete-btn:hover {
+  transform: scale(1.05);
+  background: #ff0000;
+}
+
+/* INSERT (NOW SMALL LIKE OTHERS) */
+.insert-btn {
+  background: #00d084;
+  color: #000;
+}
+.insert-btn:hover {
+  transform: scale(1.05);
+  background: #00ff99;
+}
+/* ================= ACTION CELL ================= */
+.action-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* BASE BUTTON STYLE (ALL SAME) */
+.action-btn {
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+  min-width: 55px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* EDIT */
+.edit-btn {
+  background: #f4b400;
+  color: #000;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ff3b3b;
+  color: #fff;
+}
+
+.insert-btn {
+  background: #45d8a2;
+  color: #000;
+
+  padding: 6px 14px;   /* controls size */
+  font-size: 12px;
+
+  min-width: unset;    /* IMPORTANT: removes long stretch */
+  height: 32px;
+
+  border-radius: 10px;
+}
+.table-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.insert-btn {
+  width: auto;
+  display: inline-flex;
+}

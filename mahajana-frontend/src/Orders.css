@@ -1,0 +1,421 @@
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* ================= LAYOUT ================= */
+.mg-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.mg-sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #000, #080808);
+  padding: 10px;
+}
+
+.mg-sidebar h2 {
+  color: gold;
+  margin-bottom: 40px;
+}
+
+.menu {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: gold;
+  transform: translateX(5px);
+}
+
+.menu.active {
+  background: gold;
+  color: black;
+}
+
+.logout {
+  color: red;
+  margin-top: 20px;
+}
+
+/* ================= MAIN ================= */
+.mg-main {
+  flex: 1;
+  padding: 20px;
+  background: radial-gradient(circle, #111, #000);
+}
+
+/* ================= TOPBAR ================= */
+.mg-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.mg-topbar h1 {
+  color: gold;
+  font-size: 22px;
+}
+
+/* ================= SEARCH BOX (FIXED + ANIMATED) ================= */
+.mg-search {
+  width: 260px;
+  padding: 10px 15px;
+
+  border-radius: 25px;
+  border: 1px solid rgba(243, 149, 9, 0.2);
+
+  background: rgba(107, 98, 98, 0.6);
+  color: white;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.mg-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mg-search:focus {
+  width: 300px;
+
+  border: 1px solid gold;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+
+  background: rgba(0, 0, 0, 0.8);
+
+  transform: translateY(-2px);
+}
+
+/* ================= FILTERS (SINGLE LINE FIXED) ================= */
+.mg-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+  margin: 15px 0;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  padding: 5px 0;
+}
+
+.mg-filters::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= FILTER BUTTONS (MEDIUM SIZE FIXED) ================= */
+.mg-filters button {
+  flex: 0 0 auto;
+
+  padding: 6px 12px;
+  min-width: 85px;
+  max-width: 110px;
+
+  border: none;
+  border-radius: 18px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  color: white;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+/* SHINE */
+.mg-filters button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.35),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+.mg-filters button:hover::before {
+  left: 120%;
+}
+
+.mg-filters button:hover {
+  transform: translateY(-2px);
+  color: gold;
+}
+
+.mg-filters button.active {
+  background: linear-gradient(135deg, #ffb300, #ff6f00);
+  color: black;
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(255, 183, 0, 0.6);
+}
+
+/* ================= TABLE CARD ================= */
+.mg-table-card {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 15px;
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+  overflow-x: auto;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+/* HEADER */
+th {
+  padding: 12px;
+  text-align: center;
+
+  color: gold;
+  font-size: 13px;
+
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* CELLS */
+td {
+  padding: 12px;
+  text-align: center;
+
+  color: #fff;
+  font-size: 13px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ROW HOVER */
+tr {
+  transition: 0.3s;
+}
+
+tr:hover {
+  background: rgba(255, 215, 0, 0.06);
+  transform: scale(1.01);
+}
+
+/* FADE */
+.fade {
+  animation: fadeUp 0.4s ease;
+}
+
+/* ================= STATUS (span version, kept in case anything still uses it) ================= */
+.status-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+
+  display: inline-block;
+  color: white;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.status-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.4),
+    transparent
+  );
+
+  animation: shine 2s infinite;
+}
+
+.pending { background: #ff5722; }
+.shipped { background: #2196f3; }
+.delivered { background: #4caf50; }
+
+/* ================= STATUS DROPDOWN (real, editable — changes status in MySQL) ================= */
+.status-select {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, white 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) center,
+    calc(100% - 11px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 26px;
+
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+.status-select:hover {
+  transform: scale(1.04);
+}
+
+.status-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-select.pending {
+  background-color: #ff5722;
+}
+
+.status-select.shipped {
+  background-color: #2196f3;
+}
+
+.status-select.delivered {
+  background-color: #4caf50;
+}
+
+.status-select.cancelled {
+  background-color: #6b6b6b;
+}
+
+.status-select option {
+  color: black;
+  background: white;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% { left: -120%; }
+  100% { left: 120%; }
+}
+
+/* ================= BACK ARROW (THEME MATCHED) ================= */
+.back-arrow {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: gold;
+
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+
+  transition: all 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.back-arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.35),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+.back-arrow:hover::before {
+  left: 120%;
+}
+
+.back-arrow:hover {
+  background: gold;
+  color: black;
+  transform: translateX(-5px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.back-arrow:active {
+  transform: scale(0.95);
+}
